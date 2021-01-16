@@ -1,0 +1,19 @@
+{
+  "name": "googleapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "express.js": "^1.0.0",
+    "googleapis": "^39.2.0",
+    "mime": "^2.4.7",
+    "nodemailer": "^6.4.17",
+    "pg-promise": "^10.8.7"
+  }
+}
