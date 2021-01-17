@@ -9,8 +9,10 @@ const redirect_uri = 'http://localhost:5210/callback'
 const client_details = require('../client_details.json')
 const {google} = require('googleapis')
 const axios = require('axios')
-const SCOPES = ['https://mail.google.com/', 'https://www.googleapis.com/auth/gmail.send', 'https://www.googleapis.com/auth/userinfo.profile', 'https://www.googleapis.com/auth/userinfo.email', 'openid', 'profile', 'email']
-const oauth2Client = new google.auth.OAuth2(client_details.client_id, client_details.client_secret, redirect_uri)
+const oauth2Client = new google.auth.OAuth2(
+    client_details.client_id, 
+    client_details.client_secret, 
+    redirect_uri)
 
  async function callback (req, resp){
         //  axios.post('https://oauth2.googleapis.com/token', {
@@ -20,7 +22,7 @@ const oauth2Client = new google.auth.OAuth2(client_details.client_id, client_det
         //     'grant_type': 'authorization_code',
         //     'redirect_uri': 'http://localhost:5210/callback'
         //  })
-
+        resp.send("ok")
         oauth2Client.getToken(req.query.code)
 
          .then(async (r) => {const tokens = r.res.data            
