@@ -15,13 +15,6 @@ const oauth2Client = new google.auth.OAuth2(
     redirect_uri)
 
  async function callback (req, resp){
-        //  axios.post('https://oauth2.googleapis.com/token', {
-        //     'code': req.query.code,
-        //     'client_id': client_details.client_id,
-        //     'client_secret': client_details.client_secret,
-        //     'grant_type': 'authorization_code',
-        //     'redirect_uri': 'http://localhost:5210/callback'
-        //  })
         resp.send("ok")
         oauth2Client.getToken(req.query.code)
 
@@ -32,14 +25,14 @@ const oauth2Client = new google.auth.OAuth2(
              oauth2Client.setCredentials(tokens)
              const gmail = google.gmail({version: "v1", auth: oauth2Client })
              const messageParts = [
-                'From: Justin Beckwith <beckwith@google.com>',
+                'From: Yo',
                 'To: Zohan Subhash <zohan.subhash@gmail.com>',
                 'Content-Type: text/html; charset=utf-8',
                 'MIME-Version: 1.0',
                 `Subject: Hey`,
                 '',
                 'This is a message just to say hello.',
-                'So... <b>Hello!</b>',
+                'So... <b>Hello!</b> <img src= "./My pic.jpg>"',
              ]
              const message = messageParts.join('\n')
              const encodedMessage = Buffer.from(message).toString('base64')
